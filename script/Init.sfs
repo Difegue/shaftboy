@@ -1,0 +1,103 @@
+//SHAFTBOY Script Language Example 
+
+>>title SHAFTBOY Engine Ver 0.05 Revision 1.42 Freedums Edition
+//Game window title.
+
+>>framenum 22
+//number of frames in the res/frame folder. 
+
+>>bcknum 3
+//number of backgrounds in the res/bck folder
+
+>>gbp res/gbp/A/test.png 2
+//first GBPicture to be displayed, border number as second argument
+
+//All the scale matters are handled automatically depending on the resolution mentioned in res.cfg
+
+//Displaying first background
+>>bg 1 
+
+//>>musicp "res/bgm/01.ogg" 200 3000000
+
+//Font management.
+>>textsize 24
+//Font is by default karen2mono.ttf. Can be changed at will with the following command. Uncomment the line underneath for an example.
+//>>font res/font/BAKESBR.ttf 
+
+//Plays a sound. Format can be wav, ogg, flac, you name it.
+//>>soundp res/sfx/SFX_switch.flac
+
+//Scenes are delimited with the :: marker to make jumping around easier.
+::Scene1
+
+//Text output starts here. Any text without a ::, >> or // marker is automatically printed to the textbox.
+This is text. 
+Text goes here.
+
+//Adds a choice which loops back to ::Scene 1 if the first answer is selected (not implemented yet)
+//>>choice Scene1 "choose this to loop" sc2 "choose this to stop pls"
+
+
+::sc2
+
+//Change color of gameboy picture 
+>>color 0 255 255 160 192 232 255 208 222 255 102 204
+
+//You can split text like this to request user interaction.
+More text.
+I love text.
+Texttextextextextextextextextextextextextextextext.
+
+//Change gameboy picture and border
+>>gbp res/gbp/A/test2.png 12
+
+//Change background
+>>bg 0
+
+Bonjour, désiriez-vous partager un moment avec mon humble personne et jouer à Pocket Monsters?
+
+>>color 0 255 255 160 192 232 255 208 222 255 102 204
+
+//Change color of textbox
+>>textcolor 0 255 255 160 192 232 255 208 222 255 102 204
+
+COLOR CHANGE!
+Truly amazing shit up here man
+>>bg 2
+Now is the time where I test the wordwrapping. You see, sometimes people will be stupid enough to write everything on only one line. Well, to be honest I haven't implemented a maximal number of lines thingy yet so there might be overflow if you fuck around with the script too much...
+//
+HAHA TIME FOR VARIABLES!
+
+//Define a variable (here, panis=3)
+>>var panis 3
+
+//Check variable state(here, if panis = 1 )
+
+>>if panis 1
+This shouldn't be displayed, consult the enclosed source code if it does!
+>>gbp res/test.png
+//
+No, it really shouldn't. pls stop
+>>else
+You should normally be reading this. IN GAME. 
+Don't go reading the script like that, k?
+>>endif
+K shit's over good bye
+//
+IT ISN'T!
+>>gbp res/gbp/B/22.png 15
+Hello I am robot
+How are you fine thank you
+>>color 0 255 255 160 192 125 200 208 111 89 102 77
+>>textcolor 0 255 255 160 192 125 200 208 111 89 102 77
+get a feeling so complicated
+>>gbp res/gbp/B/20.png 15
+>>color 50 155 200 160 122 125 200 208 111 89 102 77
+true dat
+
+>>musics
+
+//On ré-ouvre le script dans lequel on est actuellement, ce qui résulte en un loop infini. 
+//IT JUST WORKS. Cette fonction est conçue pour passer d'un script à un autre parce qu'on va pas écrire tout le jeu dans un fichier, eh!
+//Ce qui signifie qu'on peut ainsi passer d'un .sfs à un autre sans coupure. (Enfin normalement, j'ai pas testé avec autre chose qu'un loop) 
+>>open Init.sfs 

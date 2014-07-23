@@ -1,0 +1,3 @@
+When adding new borders, make sure to number them properly according to the already present frames.
+
+If the last one is 21.png, rename the new one 22.png and change the matching line in the .sfs file accordingly.
